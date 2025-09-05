@@ -12,7 +12,7 @@ async function connectToDatabase() {
     client = new MongoClient(uri);
     await client.connect();
   }
-  return client.db('ecommerce');
+  return client.db(process.env.DB_NAME || 'ecommerce');
 }
 
 // Helper function to verify JWT token
